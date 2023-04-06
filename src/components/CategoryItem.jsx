@@ -1,15 +1,19 @@
 import styled from "styled-components"
+import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
+
 
 function CategoryItem({item}) {
 
-    
-  return (
+return (
     <Container>
+        <Link to="/products/category">
         <Image src={item.img} />
         <Info>
             <Title>{item.title}</Title>
             <Button>SHOP NOW</Button>
         </Info>
+        </Link>
     </Container>
   )
 }
@@ -23,7 +27,8 @@ function CategoryItem({item}) {
     const Image = styled.img`
         width: 100%;
         height: 100%;
-        object-fit: cover
+        object-fit: cover;
+        ${mobile({ height: "20vh" })}
     `
     const Info = styled.div`
         position: absolute;

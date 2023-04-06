@@ -1,7 +1,8 @@
 import {useState} from "react"
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material"
+import { AiOutlineArrowLeft,AiOutlineArrowRight } from "react-icons/ai"
 import styled from "styled-components"
 import { sliderItems } from "../data"
+import { mobile } from "../responsive";
 
 function Slider() {
 
@@ -17,7 +18,7 @@ function Slider() {
     return (
   <Container>
     <Arrow direction="left" onClick={()=>handleClick("left")}>
-        <ArrowLeftOutlined />
+        <AiOutlineArrowLeft />
     </Arrow>
     <Wrapper slideIndex={slideIndex}>
         {sliderItems.map((item)=>(
@@ -34,7 +35,7 @@ function Slider() {
         ))}
     </Wrapper>
     <Arrow direction="right" onClick={()=>handleClick("right")}>
-        <ArrowRightOutlined />
+        <AiOutlineArrowRight />
     </Arrow>
   </Container>
   )
@@ -45,7 +46,8 @@ const Container = styled.div`
     height: 100vh;
     display: flex;
     position: relative;
-    overflow:hidden`
+    overflow:hidden;
+    ${mobile({ display: "none" })}`
 
 const Arrow = styled.div`
     width: 50px;
